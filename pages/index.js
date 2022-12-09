@@ -41,7 +41,7 @@ const callGenerateEndpoint = async () => {
             <h1>Bullet-Proof</h1>
           </div>
           <div className="header-subtitle">
-            <h2>"Annotation at the Speed of Thought with GPT-3"</h2>
+            <h2>"Annotations at the Speed of Thought"</h2>
           </div>
         </div>
       </div>

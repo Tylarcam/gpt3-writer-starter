@@ -15,11 +15,10 @@ in the 1,2, 3 lines:
 1.
 2.
 3.
-a. write a brief analysis which relates to any of the 
-following research disciplines like anthropology, 
-multimodal anthropology and the notions of fugitivity if any. 
-What methods if any were being explored in this publication:
-Write an i,1,2,3,a for the following url, title, or library catalog link:
+for a write "a:". 
+
+If the publication is academic, what methods if any were being explored in this publication:
+Write an i,1,2,3,a for the Book, Publication, or Journal article:
 `
 ;
 const generateAction = async (req, res) => {
@@ -44,7 +43,7 @@ const generateAction = async (req, res) => {
   
   i123a setUP: ${basePromptOutput.text}
   
-  i123a:
+  write a i123:
   `
   // I call the OpenAI API a second time with Prompt #2
   const secondPromptCompletion = await openai.createCompletion({
