@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import buildspaceLogo from '../assets/buildspace-logo.png';
+import buildspaceLogo from '../assets/twitterIcon.png';
 import { useState } from 'react';
 
 const Home = () => {
@@ -92,15 +92,16 @@ const Home = () => {
   </button>
       <div className="badge-container grow">
         <a
-          href="https://buildspace.so/builds/ai-writer"
+          href="https://twitter.com/tylarcampbell"
           target="_blank"
           rel="noreferrer"
         >
-          <div className="badge">
+          <footer className="badge">
             <Image src={buildspaceLogo} alt="buildspace logo" />
-            <p>build with buildspace</p>
-          </div>
+            <p> © 2022 ShrtHnd AI. All rights reserved. Built by @tylarcampbell</p>
+          </footer>
         </a>
+        
       </div>
     </div>
     
