@@ -8,28 +8,18 @@ const openai = new OpenAIApi(configuration);
 
 const basePromptPrefix = 
 `
-Example for Mckendrick's Method or i,1,2,3,a:
-i. citation in the APA style.
-write any three main ideas as a single sentence 
-in the 1,2, 3 lines:
-1.
-2.
-3.
-for a write "a:". 
-
-If the publication is academic, what methods if any were being explored in this publication:
-Write an i,1,2,3,a for the Book, Publication, or Journal article:
+If the publication has sub-headers or chapters, outline an detailed and accurate table of contents:
 `
 ;
 const generateAction = async (req, res) => {
   // Run first prompt
-  console.log(`API: ${basePromptPrefix}${req.body.userInput}`)
+  console.log(`${basePromptPrefix}${req.body.userInput}`)
 
   const baseCompletion = await openai.createCompletion({
     model: 'text-davinci-003',
     prompt: `${basePromptPrefix}${req.body.userInput}\n`,
-    temperature: 0.7,
-    max_tokens: 250,
+    temperature: 0.85,
+    max_tokens: 1250,
   });
   
   const basePromptOutput = baseCompletion.data.choices.pop();
@@ -37,14 +27,21 @@ const generateAction = async (req, res) => {
   // I build prompt #2.
   const secondPrompt =
 
-  `Write an i,1,2,3,a for the following url, 
-  title, or library catalog link:
-  
-  
-  i123a setUP: ${basePromptOutput.text}
-  
-  write a i123:
   `
+  TOC: ${basePromptOutput.text}
+  
+  
+  Example for or i,1,2,3,a:
+  i. write the citation in the APA style.
+  Write the authors three main ideas as single sentences 
+  1.
+  2.
+  3.
+  a. Write an analysis that shows that the reader did their research. 
+  If the publication is an academic article, If the publication is academic, 
+  what methods if any were being explored if any.
+  Write a Table of Contents than an i,1,2,3,a:
+`
   // I call the OpenAI API a second time with Prompt #2
   const secondPromptCompletion = await openai.createCompletion({
     model: 'text-davinci-003',
