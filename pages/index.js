@@ -76,7 +76,7 @@ const Home = () => {
     </div>
   
     <textarea
-    className="prompt-cont"
+    className="prompt-container"
     placeholder=""
     value={apiOutput}
   />
