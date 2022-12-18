@@ -172,7 +172,7 @@ textarea {
 .generate-button {
     place-content: flex-start;
     align-items: flex-start;
-    background-color: rgb(255, 79, 18);
+    background-color: rgb(227, 178, 0);
     border-radius: 100px;
     display: flex;
     flex: 0 0 auto;
@@ -180,7 +180,7 @@ textarea {
     gap: 10px;
     height: min-content;
     overflow: hidden;
-    padding: 16px 24px;
+    padding: .5px 24px;
     position: relative;
     text-decoration: none;
     width: min-content;
@@ -196,6 +196,9 @@ textarea {
     flex-shrink: 0;
     transform: none;
 }
+.generate-button:hoover{
+    background-color: rgb(255, 153, 0);
+  }
 
 .generate p {
     color: rgb(255, 255, 255);
@@ -333,12 +336,12 @@ textarea {
     }
 
     .prompt-container {
-        max-width: 600px;
+        max-width: 2600px;
         width: 100%;
     }
 
     .prompt-box {
-        width: 100%;
+        width: 50%;
     }
 }
 
@@ -381,7 +384,7 @@ textarea {
     }
 
     .prompt-container {
-        max-width: 400px;
+        max-width: 200px;
         width: 100%;
     }
 
