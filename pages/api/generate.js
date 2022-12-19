@@ -8,7 +8,7 @@ const openai = new OpenAIApi(configuration);
 
 const basePromptPrefix = 
 `
-Create a list of Hip-Hop venues location in the following cities: 
+If the publication has sub-headers or chapters, outline an detailed and accurate table of contents:
 `
 ;
 const generateAction = async (req, res) => {
@@ -28,16 +28,19 @@ const generateAction = async (req, res) => {
   const secondPrompt =
 
   `
-  LOV: ${basePromptOutput.text}
+  TOC: ${basePromptOutput.text}
   
   
-  generate a list of contact information for each venue and create a database called {VenueEnroute} with the following list of venues and parameters.
-    database parameters:
-    venue_name:
-    contact_name:
-    telephone:
-    email:
-    address:
+  Example for or i,1,2,3,a:
+  i. write the citation in the APA style.
+  Write the authors three main ideas as single sentences 
+  1.
+  2.
+  3.
+  a. Write an analysis that shows that the reader did their research. 
+  If the publication is an academic article, If the publication is academic, 
+  what methods if any were being explored if any.
+  Write a Table of Contents than an i,1,2,3,a:
 `
   // I call the OpenAI API a second time with Prompt #2
   const secondPromptCompletion = await openai.createCompletion({
@@ -52,7 +55,7 @@ const generateAction = async (req, res) => {
   // Get the output
   const secondPromptOutput = secondPromptCompletion.data.choices.pop();
 
-    
+  // Send over the Prompt #2's output to our UI instead of Prompt #1's.
   res.status(200).json({ output: secondPromptOutput });
 };
 

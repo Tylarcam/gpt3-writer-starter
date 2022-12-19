@@ -30,30 +30,7 @@ const Home = () => {
 
   const onUserChangedText = (event) => {
     setUserInput(event.target.value);
-  }  
-  // Create a function to export to CSV
-function exportToCsv(text) {
-  // Split the text into an array, separated by line breaks
-  const outputArray = text.split('\n');
-  
-  // Create a string for the CSV file
-  let outputString = '';
-
-  // Iterate through the array, adding the values to the outputString
-  outputArray.forEach(row => {
-    outputString += '"' + row.replace(/\"/g, '""') + '"' + '\n';
-  });
-
-  // Create a blob object with the outputString as its contents
-  const blob = new Blob([outputString], { type: 'text/csv' });
-
-  // Create a link to the file and simulate a click on it
-  const link = document.createElement('a');
-  link.href = window.URL.createObjectURL(blob);
-  link.download = prompt('Enter a filename for the exported CSV:') || 'exported_data.csv';
-  link.click();
-}
-    ;
+    };
     
     
   return (
@@ -64,25 +41,20 @@ function exportToCsv(text) {
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <img src="favicon.ico" width="150px" height="150px"></img> 
-            <h1>TourGo</h1>
+            <img src="favicon.ico" width="100px" height="100px"></img> 
+            <h1>ShrtHnd</h1>
           </div>
           <div className="header-subtitle">
-            <h2>"Focus Less on Planning Tour Locations.<br></br>
-            Spend More Time Doing What You Love, Creating Music."</h2>
+            <h2>"Speed Read. Get Your Time Back with ShrtHnd"</h2>
           </div>
         </div>
       </div>
-<div>
-  <textarea
-    className="prompt-box"
-    placeholder="Enter the State or City of your tour dates, let us connect you to the right venues!"
-    value={userInput}
-    onChange={onUserChangedText}
-/>
-</div>
-      
-                                   
+      <div className="prompt-container"> 
+        <textarea
+                              placeholder="Enter a Book, Journal, or Publication Title, and we will do the rest! "
+        value={userInput}
+        onChange={onUserChangedText}
+                                    />
 <div className="prompt-buttons">
       <a
         className={isGenerating ? 'generate-button loading' : 'generate-button'}
@@ -93,6 +65,7 @@ function exportToCsv(text) {
         </div>
       </a>
     </div>
+  </div>
 
     <div className="output">
     <div className="output-header-container">
@@ -114,12 +87,9 @@ function exportToCsv(text) {
       navigator.clipboard.writeText(apiOutput);
       onclick={onUserChangedText}    
     }}
-  > Copy </button>
-  <button className="export-button"
-    onClick={() => {exportToCsv(apiOutput); }}
-  > Export to CSV </button>
-
-
+  >
+    Copy
+  </button>
       <div className="badge-container grow">
         <a
           href="https://twitter.com/tylarcampbell"
@@ -139,5 +109,3 @@ function exportToCsv(text) {
 };
 
 export default Home;
-
-

@@ -56,7 +56,6 @@ body {
     line-height: 1.2em;
     text-align: center;
     margin: 0;
-    padding-top: 30px;
 }
 
 .header-subtitle h2 {
@@ -64,7 +63,6 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: 1.4em;
-    text-align: center;
     color: rgba(255, 255, 255, 0.75);
 }
 
@@ -174,7 +172,7 @@ textarea {
 .generate-button {
     place-content: flex-start;
     align-items: flex-start;
-    background-color: rgb(227, 49, 0);
+    background-color: rgb(227, 178, 0);
     border-radius: 100px;
     display: flex;
     flex: 0 0 auto;
@@ -182,7 +180,7 @@ textarea {
     gap: 10px;
     height: min-content;
     overflow: hidden;
-    padding: 1px 24px;
+    padding: 16px 24px;
     position: relative;
     text-decoration: none;
     width: min-content;
@@ -202,7 +200,6 @@ textarea {
 .generate p {
     color: rgb(255, 255, 255);
     margin: 0;
-    
 }
 
 .loading {
@@ -253,7 +250,7 @@ textarea {
     image-rendering: pixelated;
     flex-shrink: 0;
     fill: black;
-    color: rgb(0, 0, 0);
+    color: black;
     transform: none;
     transform-origin: 50% 50% 0px;
     padding-right: 5px;
